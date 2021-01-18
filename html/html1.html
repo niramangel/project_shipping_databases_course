@@ -1,0 +1,20 @@
+from tabulate import tabulate
+
+table = [['one', 'two', 'three'], ['four', 'five', 'six'], ['seven', 'eight', 'nine']]
+
+print(tabulate(table, tablefmt='html'))
+
+html = """<HTML>
+<body>
+    <h1>Attendance list</h1>
+    <table>
+        {0}
+    </table>
+</body>
+</HTML>"""
+
+items = [['Jason', 'Brown', 'Leeds', '40'], ['Sarah', 'Robinson', 'Bristol', '32'], ['Carlo', 'Baldi', 'Manchester', '41']]
+tr = "<tr>{0}</tr>"
+td = "<td>{0}</td>"
+subitems = [tr.format(''.join([td.format(a) for a in item])) for item in items]
+# print html.format("".join(subitems)) # or write, whichever
